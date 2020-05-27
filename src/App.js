@@ -9,11 +9,17 @@ import {
 import styled  from 'styled-components'
 import "./App.css"
 
-import About from './pages/About'
 import Home from './pages/Home'
 import Index from './pages/Index'
 
+import BarChart from './components/BarChart'
+import DateRangePicker from './components/DateRangePicker'
 import Toggle from './components/Toggle'
+
+const DashboardMain = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 const Main = styled.div`
   background-color: ${props => props.theme === 'dark' ? '#303030' : '#FFFFFF'};
@@ -81,11 +87,14 @@ const App = (props) => {
             </List>
             <ItemRight><Toggle callBack={(x) => {this._darkMode(x)}} /></ItemRight>
           </NavBar>
-          <Switch>
-            <Route exact path="/"><Index /></Route>
-            <Route exact path="/about"><About /></Route>
-            <Route path="*"><Home /></Route>
-          </Switch>
+          <DashboardMain>
+            <DateRangePicker />
+            <BarChart />
+            <Switch>
+              <Route exact path="/"><Index /></Route>
+              <Route path="*"><Home /></Route>
+            </Switch>
+          </DashboardMain>
           <Footer>
             <Text theme={value.theme}>&copy;</Text>
           </Footer>

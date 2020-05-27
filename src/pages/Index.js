@@ -8,9 +8,7 @@ class Index extends Component {
 
   render() {
     return (
-      <div className="container" style={{marginTop: '10px'}}>
-        <P>Random</P>
-      </div>
+      <P>Random</P>
     );
   }
 }
